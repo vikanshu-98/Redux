@@ -1,4 +1,4 @@
-import {combineReducers, createStore} from 'redux'
+import { createStore} from 'redux'
 import productReducer from './productReducer'
 import cartReducuer, { CART_ADD_ITEM, CART_ITEM_DECREASE_QUANTITY, CART_ITEM_INCREASE_QUANTITY, CART_REMOVE_ITEM } from './cartReducer'
 import wishlistReducer, { ADDWISHLIST, REMOVEWISHLIST } from './wishlistReducer'
@@ -8,6 +8,24 @@ const reducer = combineReducers({
     cartItems:cartReducuer,
     wishlist:wishlistReducer
 })
+
+
+function combineReducers(reducers){
+    const reducerKey  = Object.keys(reducers)
+    return function (state={},action){
+        const nextState={}
+
+        for(let i=0;i<reducerKey.length;i++){
+            const key  = reducerKey[i];
+            const reducer = reducers[key]
+            const previousStateForKey  =state[key]
+            const nextStateForKey  = reducer(previousStateForKey,action)
+            nextState[key] = nextStateForKey
+
+        }
+        return nextState
+    }
+}
 
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__?.())
 
