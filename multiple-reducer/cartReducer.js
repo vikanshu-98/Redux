@@ -27,3 +27,8 @@ export default function cartReducuer(state=[],action){
         default: return state
     }
 }
+
+//action creator
+export function addToCart(quantity,productId=1){
+    return  {type:CART_ADD_ITEM,payload:{quantity,productId}}
+}
