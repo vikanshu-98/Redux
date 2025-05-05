@@ -1,7 +1,7 @@
-import { createStore} from 'redux'
+import { combineReducers, createStore} from 'redux'
 import productReducer from './productReducer'
 import cartReducuer, {addToCart, CART_ADD_ITEM, CART_ITEM_DECREASE_QUANTITY, CART_ITEM_INCREASE_QUANTITY, CART_REMOVE_ITEM } from './cartReducer'
-import wishlistReducer, { ADDWISHLIST, REMOVEWISHLIST } from './wishlistReducer'
+import wishlistReducer, { addToWishlist, ADDWISHLIST, REMOVEWISHLIST } from './wishlistReducer'
 
 const reducer = combineReducers({
     products:productReducer,
@@ -10,27 +10,28 @@ const reducer = combineReducers({
 })
 
 
-function combineReducers(reducers){
-    const reducerKey  = Object.keys(reducers)
-    return function (state={},action){
-        const nextState={}
+// function combineReducers(reducers){
+//     const reducerKey  = Object.keys(reducers)
+//     return function (state={},action){
+//         const nextState={}
 
-        for(let i=0;i<reducerKey.length;i++){
-            const key  = reducerKey[i];
-            const reducer = reducers[key]
-            const previousStateForKey  =state[key]
-            const nextStateForKey  = reducer(previousStateForKey,action)
-            nextState[key] = nextStateForKey
+//         for(let i=0;i<reducerKey.length;i++){
+//             const key  = reducerKey[i];
+//             const reducer = reducers[key]
+//             const previousStateForKey  =state[key]
+//             const nextStateForKey  = reducer(previousStateForKey,action)
+//             nextState[key] = nextStateForKey
 
-        }
-        return nextState
-    }
-}
+//         }
+//         return nextState
+//     }
+// }
 
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__?.())
 export default store
 // store.dispatch({type:''})
 // store.dispatch(addToCart(2,2))
+// alert(store.getState())
 // store.dispatch({type:CART_ADD_ITEM,payload:{quantity:1,productId:2}})
 // store.dispatch({type:CART_REMOVE_ITEM,payload:{productId:1}})
 // store.dispatch({type:CART_ITEM_INCREASE_QUANTITY,payload:{productId:1}})
@@ -45,4 +46,11 @@ export default store
 // store.dispatch({type:REMOVEWISHLIST,payload:{productId:2}})
 // store.dispatch({type:CART_ITEM_INCREASE_QUANTITY,payload:{productId:2}})
 
+// store.dispatch({type:ADDWISHLIST,payload:{productId:4}})
+// store.dispatch({type:CART_ADD_ITEM,payload:{productId:4}})
 // console.log(store.getState());
+// console.log('sdssdd');
+// console.log('ssd');
+
+
+ 

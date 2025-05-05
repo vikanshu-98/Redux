@@ -100,7 +100,7 @@ header{
 }
 .cart-icon img{
     width: 13%;
-    height: 19%;
+    /* height: 19%; */
     display: flex;
     text-align: center;
     margin-inline: auto;
