@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "../react-redux";
 import { addToCart } from "../multiple-reducer/cartReducer";
 import { useState } from "react";
 import { addToWishlist, removeFromWishlist } from "../multiple-reducer/wishlistReducer";

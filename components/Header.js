@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import {CartIcon} from '../assets/cart-icon.svg'
-import { useSelector } from "react-redux";
-console.log(CartIcon);
+import { useSelector } from "../react-redux";
+// console.log(CartIcon);
 
 const Header = () => { 
     const cartItem = useSelector((state)=>state.cartItems)

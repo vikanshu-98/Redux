@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useSelector } from "../react-redux";
 import CartItem from "../components/CartList";
 import CartList from "../components/CartList";
 import { Link } from "react-router";
